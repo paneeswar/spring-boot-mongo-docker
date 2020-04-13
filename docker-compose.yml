@@ -12,6 +12,9 @@ services:
       - mongo
     deploy:
       replicas: 3
+      placement:
+        constraints:
+          - node.labels.server == nodeone
       update_config:
         parallelism: 1
         delay: 20s
