@@ -23,18 +23,21 @@ node{
         sh 'docker push paneeswar/spring-boot-mongo'
      }
      
-     stage("Deploy To Kuberates Cluster"){
+     /**stage("Deploy To Kuberates Cluster"){
        kubernetesDeploy(
          configs: 'springBootMongo.yml', 
          kubeconfigId: 'KUBERNATES_CONFIG',
          enableConfigSubstitution: true
         )
-     }
+     }**?
 	 
-	  /**
+	  
       stage("Deploy To Kuberates Cluster"){
-        sh 'kubectl apply -f pringBootMongo.yml'
-      } **/
+      sshagent(['kuber']) {
+        sh 'ssh -o StrictHostKeyChecking=no ubuntu@15.206.147.255 docker stop java-web-app || true'
+        sh 'scp -o StrictHostKeyChecking=no  springBootMongo.yml ubuntu@15.206.147.255:'
+        sh 'kubectl apply -f springBootMongo.yml'
+      } 
      
 }
 
