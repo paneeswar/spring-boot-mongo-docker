@@ -17,7 +17,7 @@ node{
     }
     
     stage('Push Docker Image'){
-          withCredentials([usernamePassword(credentialsId: 'GitHub_Credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
+          withCredentials([usernamePassword(credentialsId: 'Dokcer_Hub_Credentails', passwordVariable: 'password', usernameVariable: 'username')]) {
           sh "docker login -u ${username} -p ${password}"
         }
         sh 'docker push dockerhandson/spring-boot-mongo'
