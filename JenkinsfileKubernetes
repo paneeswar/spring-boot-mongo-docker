@@ -29,13 +29,13 @@ node{
          kubeconfigId: 'KUBERNATES_CONFIG',
          enableConfigSubstitution: true
         )
-     }**?
+     }**/
 	 
 	  
       stage("Deploy To Kuberates Cluster"){
       sshagent(['kuber']) {
-        sh 'ssh -o StrictHostKeyChecking=no ubuntu@15.206.147.255'
-        sh 'scp -o StrictHostKeyChecking=no  springBootMongo.yml ubuntu@15.206.147.255:'
+        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.131.254'
+        sh 'scp -o StrictHostKeyChecking=no  springBootMongo.yml ubuntu@13.233.131.254:'
         sh 'kubectl apply -f springBootMongo.yml'
       } 
      
