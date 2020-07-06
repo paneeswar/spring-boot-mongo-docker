@@ -34,8 +34,9 @@ node{
 	  
       stage("Deploy To Kuberates Cluster"){
       sshagent(['kuber']) {
-        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.131.254'
+        
         sh 'scp -o StrictHostKeyChecking=no  springBootMongo.yml ubuntu@13.233.131.254:'
+	sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.131.254'
         sh 'kubectl apply -f springBootMongo.yml'
       } 
      
