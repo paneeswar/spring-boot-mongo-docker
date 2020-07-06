@@ -36,8 +36,8 @@ node{
       sshagent(['kuber']) {
         
         sh 'scp -o StrictHostKeyChecking=no  springBootMongo.yml ubuntu@13.233.131.254:'
-	sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.131.254'
-        sh 'kubectl apply -f springBootMongo.yml'
+	
+        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.233.131.254 kubectl apply -f springBootMongo.yml'
       } 
      
 }
