@@ -24,7 +24,7 @@ node{
     // Remove local image in Jenkins Server
    // stage("Remove Local Image"){
     //    sh "docker rmi -f dockerhandson/spring-boot-mongo"
-    }
+//    }
     
     stage("Deploy to docker swarm cluster"){
         sshagent(['ssh']) {
