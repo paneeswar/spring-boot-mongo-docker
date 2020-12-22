@@ -19,7 +19,7 @@ node{
      //   }
      //   sh "docker push dockerhandson/spring-boot-mongo"
         
-    }
+   // }
     
     // Remove local image in Jenkins Server
    // stage("Remove Local Image"){
